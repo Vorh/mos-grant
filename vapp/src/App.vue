@@ -1,41 +1,17 @@
 <template>
-  <div  id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-
-    <div class="section">
-      <h2>Show the Accounts</h2>
-      <drizzle-account units="Ether" :precision="2" />
-    </div>
-
-    <div class="section">
-      <h2>Tutorial Token</h2>
-      <TutorialToken />
-    </div>
-
-    <div class="section">
-      <h2>Simple Storage</h2>
-      <SimpleStorage />
-    </div>
-
-    <div class="section">
-      <h2>Complex Storage</h2>
-      <ComplexStorage />
-    </div>
-  </div>
+  <v-app id="app">
+    <router-view></router-view>
+  </v-app>
 
 </template>
 
 <script>
-import TutorialToken from './TutorialToken'
-import SimpleStorage from './SimpleStorage'
-import ComplexStorage from './ComplexStorage'
+
 
 export default {
   name: 'app',
   components: {
-    ComplexStorage,
-    TutorialToken,
-    SimpleStorage
+
   },
 
 }
