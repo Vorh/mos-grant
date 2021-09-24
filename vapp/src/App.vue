@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isDrizzleInitialized" id="app">
+  <div  id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <div class="section">
@@ -23,14 +23,12 @@
     </div>
   </div>
 
-  <div v-else>Loading...</div>
 </template>
 
 <script>
 import TutorialToken from './TutorialToken'
 import SimpleStorage from './SimpleStorage'
 import ComplexStorage from './ComplexStorage'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
@@ -40,7 +38,6 @@ export default {
     SimpleStorage
   },
 
-  computed: mapGetters('drizzle', ['isDrizzleInitialized'])
 }
 </script>
 
