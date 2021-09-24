@@ -8,8 +8,20 @@ const routes = [
 
     {
         path: '/',
-        name: 'Dapp',
-        component: () => import('../component/Requests.vue'),
+        name: 'Grant',
+        component: () => import('../component/grant/GrantView.vue'),
+    },
+
+    {
+        path: '/requests',
+        name: 'Requests',
+        component: () => import('../component/requests/RequestsView.vue'),
+    },
+
+    {
+        path: '/account',
+        name: 'Account',
+        component: () => import('../component/account/AccountView.vue'),
     },
 
 
