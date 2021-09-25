@@ -2,6 +2,8 @@
 const state = {
     inn: null,
     fio: null,
+    sum: null,
+    typeGrant: null,
 };
 
 const getters = {
@@ -15,6 +17,13 @@ const getters = {
         return state.fio;
     },
 
+    typeGrant(state) {
+        return state.typeGrant;
+    },
+
+    sum(state) {
+        return state.sum;
+    },
 
 };
 
@@ -40,6 +49,13 @@ const mutations = {
     },
 
 
+    setTypeGrant(state, typeGrant) {
+        state.typeGrant = typeGrant;
+    },
+
+    setSum(state, sum) {
+        state.sum= sum;
+    },
 };
 
 export default {

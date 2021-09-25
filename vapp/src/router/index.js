@@ -13,6 +13,30 @@ const routes = [
     },
 
     {
+        path: '/new',
+        name: 'GrantNew',
+        component: () => import('../component/grant/GrantNewView.vue'),
+    },
+
+    {
+        path: '/document',
+        name: 'GrantDocument',
+        component: () => import('../component/grant/GrantDocument.vue'),
+    },
+
+    {
+        path: '/send',
+        name: 'GrantSendRequest',
+        component: () => import('../component/grant/GrantSendRequest.vue'),
+    },
+
+    {
+        path: '/end',
+        name: 'GrantRequestEnd',
+        component: () => import('../component/grant/GrantRequestEnd.vue'),
+    },
+
+    {
         path: '/requests',
         name: 'Requests',
         component: () => import('../component/requests/RequestsView.vue'),

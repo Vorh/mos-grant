@@ -8,8 +8,8 @@
 
     <v-col lg="3" md="1" cols="2" sm="2" class="ml-0 pl-0">
       <v-row dense class="logo" @click="clickLogo">
-        <div style="width: 40px; height: 40px">
-          <v-img :src="require('../../assets/logo.png')"></v-img>
+        <div style="width: 150px; height: 40px">
+          <v-img :src="require('../../assets/logo-new.png')"></v-img>
         </div>
       </v-row>
     </v-col>

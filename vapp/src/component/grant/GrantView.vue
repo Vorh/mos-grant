@@ -17,13 +17,15 @@
         </v-row>
 
         <v-row justify="center" class="mt-15">
-          <v-col class="form  fixed">
-            <v-row>
-              <v-text-field dense color="black" outlined v-model="inn" label="ИНН"></v-text-field>
-            </v-row>
-            <v-row>
-              <v-btn outlined class="btn-get" color="black" @click="getGrant">Получить</v-btn>
-            </v-row>
+          <v-col class="form  fixed" lg="3">
+
+            <v-card style="height: 100%">
+              <v-card-text>
+                  <v-text-field dense color="black" outlined v-model="inn" label="ИНН"></v-text-field>
+                  <v-btn outlined class="btn-get" color="black" @click="getGrant">Начать оформление субсидии</v-btn>
+              </v-card-text>
+            </v-card>
+
           </v-col>
         </v-row>
 
@@ -36,7 +38,7 @@
 <script>
 
 
-import {mapActions} from "vuex";
+import {mapActions, mapMutations} from "vuex";
 
 export default {
   name: "GrantView",
@@ -49,9 +51,13 @@ export default {
 
   methods: {
 
+    ...mapActions(['resetSteps']),
+    ...mapMutations(['setStep']),
 
     getGrant(){
-      this.login(this.inn);
+      this.resetSteps();
+      this.setStep(1);
+      this.$router.push({name: 'GrantNew'})
     }
 
   }
@@ -62,9 +68,7 @@ export default {
 <style scoped>
 
 
-.fixed {
-  flex: 0 0 300px;
-}
+
 
 .form {
   background-color: #F4F5F9;

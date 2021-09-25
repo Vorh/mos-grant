@@ -1,107 +1,49 @@
 <template>
-  <v-stepper non-linear>
+  <v-col lg="8">
+  <v-stepper non-linear :value="step">
     <v-stepper-header>
       <v-stepper-step
-          editable
           step="1"
+          color="black"
+          :complete="complete1"
       >
-        Select campaign settings
+        Сумма и тип субсидии
       </v-stepper-step>
 
       <v-divider></v-divider>
 
       <v-stepper-step
-          editable
           step="2"
+          color="black"
+          :complete="complete2"
       >
-        Create an ad group
+        Документы
       </v-stepper-step>
 
       <v-divider></v-divider>
 
       <v-stepper-step
           step="3"
-          editable
+          color="black"
+          :complete="complete3"
       >
-        Create an ad
+        Проверка и отправка
       </v-stepper-step>
     </v-stepper-header>
   </v-stepper>
+  </v-col>
 
-  <v-stepper
-      class="mt-12"
-      non-linear
-  >
-    <v-stepper-header>
-      <v-stepper-step
-          complete
-          editable
-          step="1"
-      >
-        Select campaign settings
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step
-          editable
-          step="2"
-      >
-        Create an ad group
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step
-          complete
-          editable
-          step="3"
-      >
-        Create an ad
-      </v-stepper-step>
-    </v-stepper-header>
-  </v-stepper>
-
-  <v-stepper
-      class="mt-12"
-      non-linear
-      value="3"
-  >
-    <v-stepper-header>
-      <v-stepper-step
-          complete
-          editable
-          step="1"
-      >
-        Select campaign settings
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step
-          complete
-          editable
-          step="2"
-      >
-        Create an ad group
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step
-          complete
-          editable
-          step="3"
-      >
-        Create an ad
-      </v-stepper-step>
-    </v-stepper-header>
-  </v-stepper>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
-  name: "RequestStepper"
+  name: "RequestStepper",
+
+  computed:{
+    ...mapGetters(['complete3', 'complete2', 'complete1', 'step'])
+  }
 }
 </script>
 
