@@ -9,6 +9,7 @@
     <v-col lg="3" md="1" cols="2" sm="2" class="ml-0 pl-0">
       <v-avatar style="width: 100%; border-radius: 0">
         <img :src="require('../../assets/logo_tall.png')"
+             @click="clickLogo"
              style="width: auto; height: 60px"
         />
         <v-spacer></v-spacer>
