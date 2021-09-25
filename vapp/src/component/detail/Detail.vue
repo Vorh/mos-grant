@@ -87,13 +87,13 @@ export default {
 
 <style scoped>
 .tab-button-in-active {
-  color: #0A0952;
   cursor: pointer; /* Mouse pointer on hover */
   width: 200px;
   height: 40px;
   font-weight: 600;
   font-size: 18px;
   opacity: 0.8;
+
 
 }
 
@@ -106,16 +106,14 @@ export default {
 }
 
 .tab-button {
-  color: #0A0952;
   cursor: pointer; /* Mouse pointer on hover */
   height: 40px;
   width: 200px;
-
+  color: black;
   font-weight: 600;
   font-size: 18px;
   border-radius: 5px;
   background-color: #FFFFFF;
   border: 1px solid #ECECEC;
-  opacity: 0.8;
 }
 </style>

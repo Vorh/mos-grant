@@ -1,35 +1,35 @@
 <template>
   <v-stepper
-      v-model="e6"
+      v-model="step"
       vertical
+      class="no-transition"
   >
     <v-stepper-step
-        :complete="e6 > 1"
+        complete
         step="1"
+        editable
+        edit-icon="mdi-check"
+        color="black"
     >
       Заявка создана
-      <small>Summarize if needed</small>
     </v-stepper-step>
 
-    <v-stepper-content step="1">
+    <v-stepper-content step="1" class="no-transition"
+    >
       <v-card
           color="grey lighten-1"
           class="mb-12"
           height="200px"
       ></v-card>
-      <v-btn
-          color="primary"
-          @click="e6 = 2"
-      >
-        Continue
-      </v-btn>
-      <v-btn text>
-        Cancel
-      </v-btn>
     </v-stepper-content>
 
     <v-stepper-step
-        :complete="e6 > 2"
+        editable
+        complete
+        color="black"
+        edit-icon="mdi-check"
+
+
         step="2"
     >
       Заявка отправлена
@@ -41,68 +41,46 @@
           class="mb-12"
           height="200px"
       ></v-card>
-      <v-btn
-          color="primary"
-          @click="e6 = 3"
-      >
-        Continue
-      </v-btn>
-      <v-btn text>
-        Cancel
-      </v-btn>
     </v-stepper-content>
 
     <v-stepper-step
-        :complete="e6 > 3"
+        editable
+        complete
         step="3"
+        edit-icon="mdi-check"
+        color="black"
     >
       Заявка взята в работу
     </v-stepper-step>
 
     <v-stepper-content step="3">
-      <v-card
-          color="grey lighten-1"
-          class="mb-12"
-          height="200px"
-      ></v-card>
-      <v-btn
-          color="primary"
-          @click="e6 = 4"
-      >
-        Continue
-      </v-btn>
-      <v-btn text>
-        Cancel
-      </v-btn>
+      <p>Сотрудник Шаруев А.А. взял Вашу заявку в работу.
+      </p>
+      <p>
+        Ожидайте результатов проверки.
+      </p>
     </v-stepper-content>
 
-    <v-stepper-step step="4">
-      View setup instructions
+    <v-stepper-step
+        editable
+        color="black"
+        :rules="[() => false]"
+        step="4">
+      Запрошены доп. документы
     </v-stepper-step>
     <v-stepper-content step="4">
-      <v-card
-          color="grey lighten-1"
-          class="mb-12"
-          height="200px"
-      ></v-card>
-      <v-btn
-          color="primary"
-          @click="e6 = 1"
-      >
-        Continue
-      </v-btn>
-      <v-btn text>
-        Cancel
-      </v-btn>
+      <DocumentUploader/>
     </v-stepper-content>
   </v-stepper>
 </template>
 
 <script>
+import GrantDocument from "../grant/GrantDocument";
+import DocumentUploader from "./DocumentUploader";
 export default {
   name: "Status",
-
-  data:()=>({
+  components: {DocumentUploader, GrantDocument},
+  data: () => ({
 
     step: 4,
 
@@ -111,5 +89,7 @@ export default {
 </script>
 
 <style scoped>
-
+.no-transition {
+  transition: none !important;
+}
 </style>
