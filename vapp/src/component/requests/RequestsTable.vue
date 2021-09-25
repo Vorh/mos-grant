@@ -9,6 +9,14 @@
     >
 
     </v-data-table>
+
+    <div class="text-center mt-10">
+      <v-pagination
+          v-model="page"
+          :length="5"
+          color="black"
+      ></v-pagination>
+    </div>
   </div>
 </template>
 
@@ -21,6 +29,7 @@ export default {
 
   data: () => ({
 
+    page: 1,
     headers: [
       {text: "Дата заявки", value: 'date'},
       {text: "Тип субсидии", value: 'type'},

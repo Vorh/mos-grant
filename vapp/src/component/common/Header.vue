@@ -17,8 +17,8 @@
       <v-row justify="center">
         <div class="hidden-xs-only">
           <span v-bind:class="activeTabGrant" @click="goToAction('/')">Субсидия</span>
-          <span v-bind:class="activeTabRequests" class=" ml-10" @click="goToAction('/requests')">Заявки</span>
-          <span v-bind:class="activeTabAccount" class="ml-10" @click="goToAction('/account')">Аккаунт</span>
+          <span v-bind:class="activeTabAccount" class="ml-10" @click="goToAction('/detail')">Моя заявка</span>
+          <span v-bind:class="activeTabRequests" class=" ml-10" @click="goToAction('/requests')">Все заявки</span>
         </div>
         <div class="hidden-sm-and-up mt-10">
           <v-select class="menu-select" flat solo color="#5686B2" :items="menus" v-model="menu" item-value="to"
@@ -58,8 +58,8 @@ export default {
         id: 2,
       },
       {
-        name: 'Account',
-        to: '/account',
+        name: 'Detail',
+        to: '/detail',
         id: 3,
       },
     ]

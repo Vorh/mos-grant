@@ -49,4 +49,10 @@ html {
   line-height: 80px;
   font-weight: bold;
 }
+
+.sub-title {
+  font-size: 30px;
+  line-height: 80px;
+  font-weight: bold;
+}
 </style>
