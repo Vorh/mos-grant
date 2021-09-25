@@ -7,11 +7,12 @@
   >
 
     <v-col lg="3" md="1" cols="2" sm="2" class="ml-0 pl-0">
-      <v-row dense class="logo" @click="clickLogo">
-        <div style="width: 150px; height: 40px">
-          <v-img :src="require('../../assets/logo-new.png')"></v-img>
-        </div>
-      </v-row>
+      <v-avatar style="width: 100%; border-radius: 0">
+        <img :src="require('../../assets/logo_tall.png')"
+             style="width: auto; height: 60px"
+        />
+        <v-spacer></v-spacer>
+      </v-avatar>
     </v-col>
     <v-col lg="6" md="10" sm="8" cols="10" class="ma-0 pa-0">
       <v-row justify="center">
