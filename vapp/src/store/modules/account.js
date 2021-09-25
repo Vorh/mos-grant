@@ -2,8 +2,9 @@
 const state = {
     inn: null,
     fio: null,
-    sum: null,
+    sum: '',
     typeGrant: null,
+    orgName: null,
 };
 
 const getters = {
@@ -25,6 +26,10 @@ const getters = {
         return state.sum;
     },
 
+    orgName(state) {
+        return state.orgName;
+    },
+
 };
 
 const actions = {
@@ -32,7 +37,7 @@ const actions = {
 
     async login({commit, dispatch, getters}, inn) {
         commit('setInn', inn)
-        commit('setFio', 'Павлов Я.В.')
+        commit('setOrgName', 'ООО Южное бутово')
     },
 
 
@@ -55,6 +60,10 @@ const mutations = {
 
     setSum(state, sum) {
         state.sum= sum;
+    },
+
+    setOrgName(state, orgName) {
+        state.orgName= orgName;
     },
 };
 

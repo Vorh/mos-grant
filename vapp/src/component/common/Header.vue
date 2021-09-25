@@ -29,8 +29,8 @@
     </v-col>
     <v-col lg="3" md="1" class="hidden-sm-and-down">
       <v-row justify="end" align="center">
-        <div class="account ml-1">
-          ИНН: <strong>7736207543</strong> ИП Павлов Я.В.
+        <div class="account ml-1" v-if="inn">
+          ИНН: <strong>{{inn}}</strong> {{orgName}}
         </div>
       </v-row>
     </v-col>
@@ -38,6 +38,8 @@
 </template>
 <script>
 
+
+import {mapGetters} from "vuex";
 
 export default {
   name: 'Header',
@@ -69,6 +71,7 @@ export default {
 
   computed: {
 
+    ...mapGetters(['inn', 'orgName']),
 
     activeTabGrant: function () {
       return {

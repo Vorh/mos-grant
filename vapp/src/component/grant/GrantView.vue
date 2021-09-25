@@ -51,13 +51,14 @@ export default {
 
   methods: {
 
-    ...mapActions(['resetSteps']),
+    ...mapActions(['resetSteps', 'login']),
     ...mapMutations(['setStep']),
 
     getGrant(){
       this.resetSteps();
+      this.login(this.inn);
       this.setStep(1);
-      this.$router.push({name: 'GrantNew'})
+      this.$router.push({name: 'GrantData'})
     }
 
   }

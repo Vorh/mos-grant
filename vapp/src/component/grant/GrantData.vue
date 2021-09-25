@@ -25,15 +25,6 @@
                     ref="form"
                     lazy-validation
                 >
-                  <v-text-field
-                      v-model="sum"
-                      label="Сумма"
-                      required
-                      color="black"
-                      outlined
-                      dense
-                  ></v-text-field>
-
                   <v-select
                       dense
                       v-model="typeGrant"
@@ -44,7 +35,27 @@
                       required
                   ></v-select>
 
-                  <v-btn outlined class="btn-get" color="black" @click="goToNext">Отправить</v-btn>
+                  <v-text-field
+                      :disabled="!typeGrant"
+                      v-model="sum"
+                      color="black"
+                      label="Сумма"
+                      :hint="hint"
+                      loading
+                      dense
+                      outlined
+                  >
+                    <template v-slot:progress>
+                      <v-progress-linear
+                          :value="progress"
+                          :color="color"
+                          absolute
+                          height="7"
+                      ></v-progress-linear>
+                    </template>
+                  </v-text-field>
+
+                  <v-btn outlined :disabled="!enableSendBtn" class="btn-get" color="black" @click="goToNext">Отправить</v-btn>
 
                 </v-form>
               </v-card-text>
@@ -63,15 +74,15 @@
 <script>
 
 
-import {mapActions, mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 import RequestStepper from "../requests/RequestStepper";
 
 export default {
-  name: "GrantNewView",
+  name: "GrantData",
   components: {RequestStepper},
   data: () => ({
-    sum: null,
 
+    sum: '',
     typeGrant: null,
     items: [
         "На онлайн-продвижение товаров, работ и услуг",
@@ -84,14 +95,52 @@ export default {
   }),
 
 
-  computed: {},
+  computed: {
+
+
+    enableSendBtn(){
+      return this.sum && this.typeGrant && this.color !== 'error'
+    },
+
+    hint (){
+      if (this.typeGrant)
+        return 'Максимальная сумму субсидирования 700 000 р'
+      else
+        return '';
+    },
+
+    progress () {
+      return Math.min(100, this.sum.length * 18)
+    },
+    color () {
+
+      let number = parseInt(this.sum.trim().split(' ').join(''));
+
+      if(number >= 700001)
+        return 'error';
+
+      if (number > 650000)
+        return 'warning';
+
+      if (number <= 100000)
+        return 'success';
+
+      if (number > 100000)
+        return 'success';
+
+
+    },
+
+  },
 
   methods: {
 
-    ...mapMutations(['setStep', 'setComplete1']),
+    ...mapMutations(['setStep', 'setComplete1', "setSum", 'setTypeGrant']),
 
 
     goToNext(){
+      this.setSum(this.sum);
+      this.setTypeGrant(this.typeGrant);
       this.setStep(2);
       this.setComplete1(true)
       this.$router.push({name: "GrantDocument"});

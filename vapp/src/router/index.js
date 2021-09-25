@@ -14,8 +14,8 @@ const routes = [
 
     {
         path: '/new',
-        name: 'GrantNew',
-        component: () => import('../component/grant/GrantNewView.vue'),
+        name: 'GrantData',
+        component: () => import('../component/grant/GrantData.vue'),
     },
 
     {
