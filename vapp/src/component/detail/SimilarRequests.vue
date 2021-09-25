@@ -5,7 +5,6 @@
     <v-data-table
         :items="requests"
         :headers="headers"
-        @click:row="goToDetail"
         hide-default-footer
     >
 
@@ -19,13 +18,6 @@
 
     </v-data-table>
 
-    <div class="text-center mt-10 mb-4">
-      <v-pagination
-          v-model="page"
-          :length="5"
-          color="black"
-      ></v-pagination>
-    </div>
     </v-card-text>
   </v-card>
 </template>
@@ -58,9 +50,7 @@ export default {
 
   methods: {
 
-    goToDetail(item){
-      this.$router.push({name: 'RequestDetail', params: {id: item.id}})
-    }
+
   }
 }
 </script>
