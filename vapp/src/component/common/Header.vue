@@ -16,9 +16,9 @@
     <v-col lg="6" md="10" sm="8" cols="10" class="ma-0 pa-0">
       <v-row justify="center">
         <div class="hidden-xs-only">
-          <span v-bind:class="activeTabSave" @click="goToAction('/')">Субсидия</span>
-          <span v-bind:class="activeTabDashboard" class=" ml-10" @click="goToAction('/requests')">Заявки</span>
-          <span v-bind:class="activeTabStats" class="ml-10" @click="goToAction('/account')">Аккаунт</span>
+          <span v-bind:class="activeTabGrant" @click="goToAction('/')">Субсидия</span>
+          <span v-bind:class="activeTabRequests" class=" ml-10" @click="goToAction('/requests')">Заявки</span>
+          <span v-bind:class="activeTabAccount" class="ml-10" @click="goToAction('/account')">Аккаунт</span>
         </div>
         <div class="hidden-sm-and-up mt-10">
           <v-select class="menu-select" flat solo color="#5686B2" :items="menus" v-model="menu" item-value="to"
@@ -48,18 +48,18 @@ export default {
     menu: null,
     menus: [
       {
-        name: 'Earn',
+        name: 'Grant',
         to: '/',
         id: 1
       },
       {
-        name: 'Fund performance',
-        to: '/fund',
+        name: 'Requests',
+        to: '/requests',
         id: 2,
       },
       {
-        name: 'Stats',
-        to: '/stats',
+        name: 'Account',
+        to: '/account',
         id: 3,
       },
     ]
@@ -69,14 +69,14 @@ export default {
   computed: {
 
 
-    activeTabSave: function () {
+    activeTabGrant: function () {
       return {
         'active-tab': this.tabId === 1,
         'in-active-tab': this.tabId !== 1,
       }
     },
 
-    activeTabDashboard: function () {
+    activeTabRequests: function () {
       return {
         'active-tab': this.tabId === 2,
         'in-active-tab': this.tabId !== 2,
@@ -84,7 +84,7 @@ export default {
     },
 
 
-    activeTabStats: function () {
+    activeTabAccount: function () {
       return {
         'active-tab': this.tabId === 3,
         'in-active-tab': this.tabId !== 3,

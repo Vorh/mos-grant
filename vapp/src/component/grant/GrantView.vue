@@ -49,7 +49,7 @@ export default {
 
   methods: {
 
-    ...mapActions('account', ['login']),
+    ...mapActions(['inn', 'fio']),
 
 
     getGrant(){
@@ -63,10 +63,6 @@ export default {
 
 <style scoped>
 
-
-.grant-title {
-  font-size: 20px;
-}
 
 .fixed {
   flex: 0 0 300px;

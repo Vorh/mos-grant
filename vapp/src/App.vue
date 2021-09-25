@@ -43,4 +43,10 @@ html {
   text-align: center;
   color: #2c3e50;
 }
+
+.grant-title {
+  font-size: 50px;
+  line-height: 80px;
+  font-weight: bold;
+}
 </style>

@@ -16,6 +16,14 @@ const routes = [
         path: '/requests',
         name: 'Requests',
         component: () => import('../component/requests/RequestsView.vue'),
+
+        children: [
+            {
+                path: '/:id',
+                name: 'RequestDetail',
+                component: () => import('../component/requests/RequestDetail.vue'),
+            }
+        ]
     },
 
     {
