@@ -4,7 +4,6 @@
     <v-data-table
         :items="requests"
         :headers="headers"
-        @click:row="goToDetail"
         hide-default-footer
     >
 
@@ -83,9 +82,6 @@ export default {
 
   methods: {
 
-    goToDetail(item) {
-      this.$router.push({name: 'RequestDetail', params: {id: item.id}})
-    },
 
     getModeColor(mode) {
 
