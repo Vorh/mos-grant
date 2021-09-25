@@ -216,7 +216,7 @@ export default {
         if (find){
           find.file = file;
           find.checked = true;
-          file.caption ='Документ найден'
+          find.caption ='Документ найден'
         }
       }
 
@@ -307,6 +307,8 @@ a.file-container > input[type=file] {
   top: 0;
   left: 0;
   text-align: right;
+  width: 100%;
+  height: 100%;
 }
 
 </style>

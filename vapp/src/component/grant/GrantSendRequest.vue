@@ -47,7 +47,7 @@
                     <v-expansion-panel
                     >
                       <v-expansion-panel-header>
-                        Обязательные документы
+                        Обязательные документы (4)
                       </v-expansion-panel-header>
                       <v-expansion-panel-content>
                       </v-expansion-panel-content>
@@ -56,7 +56,7 @@
                     <v-expansion-panel
                     >
                       <v-expansion-panel-header>
-                        Необязательные документы
+                        Необязательные документы (2)
                       </v-expansion-panel-header>
                       <v-expansion-panel-content>
                       </v-expansion-panel-content>
@@ -80,12 +80,15 @@
 
 <script>
 import RequestStepper from "../requests/RequestStepper";
-import {mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: "GrantSendRequest",
   components: {RequestStepper},
 
+  computed: {
+    ...mapGetters(['sum', 'typeGrant'])
+  },
 
   methods: {
 
