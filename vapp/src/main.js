@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify'
 import router from './router/index'
 import {axios} from './plugins/http-axios';
 import moment from 'moment';
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(Vuex)
 

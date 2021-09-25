@@ -6,33 +6,20 @@
                 flat
                 tile
         >
-            <v-card-text>
-                <v-btn icon target="_blank">
-                    <v-icon color="black">mdi-github</v-icon>
-                </v-btn>
-
-                <v-btn icon target="_blank">
-                    <v-icon color="black">mdi-discord</v-icon>
-                </v-btn>
-
-                <v-btn icon target="_blank">
-                    <v-icon color="black">mdi-twitter</v-icon>
-                </v-btn>
-
-                <v-btn icon target="_blank">
-                    <v-icon color="black">mdi-email</v-icon>
-                </v-btn>
-            </v-card-text>
-
-            <v-card-text class="white--text pt-0">
-                <!-- TODO: footer text -->
-                Footer text
-            </v-card-text>
-
-            <v-divider></v-divider>
-
             <v-card-text class="white--text">
-                {{ new Date().getFullYear() }} — <strong>mos-grant</strong>
+                <div>
+                    <a href="https://github.com/Vorh/mos-grant">
+                        <v-icon class="footer-icon">mdi-github</v-icon>
+                    </a>
+
+                    <a href="https://discord.com/channels/890240325744984104/890240325744984107">
+                        <v-icon class="footer-icon">mdi-discord</v-icon>
+                    </a>
+
+                    <a href="mailto:mos-grant@mail.ru">
+                        <v-icon class="footer-icon">mdi-email</v-icon>
+                    </a>
+                </div>
             </v-card-text>
         </v-card>
     </v-footer>
@@ -48,6 +35,12 @@ export default {
 
 .footer-row {
     background-color: #2C2C2C;
+}
+
+.footer-icon {
+    color: #ffffff;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 </style>
