@@ -26,6 +26,7 @@
             <button v-bind:class="activeTabCard" @click="tab = 1">Данные заявки</button>
             <button v-bind:class="activeTabDocument" @click="tab = 2 ">Статус</button>
             <button v-bind:class="activeTabCheck" @click="tab = 3 ">Проверки</button>
+            <button v-bind:class="activeTabRequests" @click="tab = 4 ">Похожие заявки</button>
           </v-col>
         </v-row>
         <v-row justify="center" class="mt-5">
@@ -33,6 +34,7 @@
             <Data v-if="tab === 1"/>
             <Status v-if="tab === 2"/>
             <Checks v-if="tab ===3"/>
+            <RequestsTable v-if="tab === 4"/>
           </v-col>
         </v-row>
 
@@ -49,10 +51,11 @@ import Document from "./Document";
 import Data from "./Data";
 import Checks from "./Checks";
 import Status from "./Status";
+import RequestsTable from "../requests/RequestsTable";
 
 export default {
   name: "Detail",
-  components: {Status, Checks, Data, Document, Card},
+  components: {RequestsTable, Status, Checks, Data, Document, Card},
 
 
   data:()=>({
@@ -79,6 +82,13 @@ export default {
       return {
         'tab-button': this.tab === 3,
         'tab-button-in-active': this.tab !== 3,
+      }
+    },
+
+    activeTabRequests: function () {
+      return {
+        'tab-button': this.tab === 4,
+        'tab-button-in-active': this.tab !== 4,
       }
     }
   },

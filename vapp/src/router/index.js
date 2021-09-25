@@ -56,6 +56,12 @@ const routes = [
     },
 
 
+    {
+        path: '/stats',
+        name: 'Stats',
+        component: () => import('../component/stats/StatsView.vue'),
+    },
+
 
 ]
 
