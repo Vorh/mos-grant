@@ -49,8 +49,6 @@ export default {
 
   methods: {
 
-    ...mapActions(['inn', 'fio']),
-
 
     getGrant(){
       this.login(this.inn);

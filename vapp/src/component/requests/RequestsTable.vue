@@ -4,7 +4,7 @@
     <v-data-table
         :items="requests"
         :headers="headers"
-        @click=""
+        @click:row="goToDetail"
         hide-default-footer
     >
 
@@ -36,6 +36,13 @@ export default {
 
     ...mapGetters(['requests'])
   },
+
+  methods: {
+
+    goToDetail(item){
+      this.$router.push({name: 'RequestDetail', params: {id: item.id}})
+    }
+  }
 }
 </script>
 

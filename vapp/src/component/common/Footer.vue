@@ -19,6 +19,7 @@
                     <a href="mailto:mos-grant@mail.ru">
                         <v-icon class="footer-icon">mdi-email</v-icon>
                     </a>
+                  {{ new Date().getFullYear() }} — <strong>mos-grant</strong>
                 </div>
             </v-card-text>
         </v-card>
