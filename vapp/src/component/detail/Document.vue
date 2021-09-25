@@ -7,7 +7,7 @@
         >
           <template v-slot:default="{ active }">
             <v-list-item-icon class="ma-0">
-              <v-checkbox color="black"  readonly value="true" />
+              <v-checkbox color="black"  readonly input-value="true" />
             </v-list-item-icon>
             <v-list-item-content>
 
