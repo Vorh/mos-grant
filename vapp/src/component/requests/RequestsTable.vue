@@ -8,6 +8,14 @@
         hide-default-footer
     >
 
+      <template v-slot:item.inn = {item}>
+        <span class="blur">{{item.inn}}</span>
+      </template>
+
+      <template v-slot:item.orgName = {item}>
+        <span class="blur">{{item.orgName}}</span>
+      </template>
+
     </v-data-table>
 
     <div class="text-center mt-10">
@@ -57,4 +65,8 @@ export default {
 
 <style scoped>
 
+.blur{
+  color: transparent;
+  text-shadow: rgba(0, 0, 0, 0.95) 0px 0px 10px;
+}
 </style>
