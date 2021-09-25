@@ -14,7 +14,7 @@
           sm="12"
       >
         <v-row class="justify-center align-center pt-15">
-          <div class="grant-title ml-2">Заявки на субсидию</div>
+          <div class="grant-title ml-2">Мои заявки на субсидию</div>
         </v-row>
 
         <v-row justify="center" class="mt-15">

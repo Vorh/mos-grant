@@ -1,6 +1,7 @@
 <template>
 
-  <div>
+  <v-card style="height: 100%">
+    <v-card-text class="mb-0 pb-0">
     <v-data-table
         :items="requests"
         :headers="headers"
@@ -18,14 +19,15 @@
 
     </v-data-table>
 
-    <div class="text-center mt-10">
+    <div class="text-center mt-10 mb-4">
       <v-pagination
           v-model="page"
           :length="5"
           color="black"
       ></v-pagination>
     </div>
-  </div>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

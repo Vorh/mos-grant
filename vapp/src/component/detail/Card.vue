@@ -18,6 +18,15 @@
           dense
           readonly
       ></v-text-field>
+   <v-text-field
+       v-model="date"
+       label="Дата создания"
+       required
+       color="black"
+       outlined
+       dense
+       readonly
+   ></v-text-field>
       <v-text-field
           v-model="sum"
           label="Сумма"
@@ -44,6 +53,7 @@ export default {
   name: "Card",
 
   data:()=>({
+    date: '26.09.2021',
     orgName: 'ООО Яндекс',
     inn: '7736207543',
     sum: '700 000 р',

@@ -306,8 +306,6 @@ a.file-container > input[type=file] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   text-align: right;
 }
 
