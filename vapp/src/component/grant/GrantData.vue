@@ -139,7 +139,7 @@ export default {
 
 
     goToNext(){
-      this.setSum(this.sum);
+      this.setSum(this.sum + ' р');
       this.setTypeGrant(this.typeGrant);
       this.setStep(2);
       this.setComplete1(true)

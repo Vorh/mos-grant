@@ -49,16 +49,19 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "Card",
 
   data:()=>({
     date: '26.09.2021',
-    orgName: 'ООО Яндекс',
-    inn: '7736207543',
-    sum: '700 000 р',
-    typeGrant: 'На онлайн-продвижение товаров, работ и услуг'
   }),
+
+  computed: {
+    ...mapGetters(['inn', 'orgName', 'typeGrant', 'sum'])
+
+  }
 }
 </script>
 

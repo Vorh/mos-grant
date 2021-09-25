@@ -52,7 +52,7 @@ export default {
         case 1:
           return 'green';
         case 2:
-          return 'red';
+          return 'warning';
         case 3:
           return 'black'
       }
