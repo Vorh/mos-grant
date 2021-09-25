@@ -34,7 +34,7 @@
             <Data v-if="tab === 1"/>
             <Status v-if="tab === 2"/>
             <Checks v-if="tab ===3"/>
-            <RequestsTable v-if="tab === 4"/>
+            <SimilarRequests v-if="tab === 4"/>
           </v-col>
         </v-row>
 
@@ -51,11 +51,11 @@ import Document from "./Document";
 import Data from "./Data";
 import Checks from "./Checks";
 import Status from "./Status";
-import RequestsTable from "../requests/RequestsTable";
+import SimilarRequests from "./SimilarRequests";
 
 export default {
   name: "Detail",
-  components: {RequestsTable, Status, Checks, Data, Document, Card},
+  components: {SimilarRequests, Status, Checks, Data, Document, Card},
 
 
   data:()=>({

@@ -18,7 +18,7 @@
       <v-row justify="center">
         <div class="hidden-xs-only">
           <span v-bind:class="activeTabGrant" @click="goToAction('/')">Субсидия</span>
-          <span v-bind:class="activeTabRequests" class="ml-10" @click="goToAction('/detail')">Мои заявки</span>
+          <span v-bind:class="activeTabRequests" class="ml-10" @click="goToAction('/requests')">Мои заявки</span>
           <span v-bind:class="activeTabAccount" class=" ml-10" @click="goToAction('/stats')">Статистика</span>
         </div>
         <div class="hidden-sm-and-up mt-10">
@@ -54,8 +54,8 @@ export default {
         id: 1
       },
       {
-        name: 'Detail',
-        to: '/detail',
+        name: 'Requests',
+        to: '/requests',
         id: 2,
       },
       {

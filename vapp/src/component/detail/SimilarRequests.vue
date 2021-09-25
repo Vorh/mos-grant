@@ -35,7 +35,7 @@
 import {mapGetters, mapMutations} from "vuex";
 
 export default {
-  name: "RequestsTable",
+  name: "SimilarRequests",
 
   data: () => ({
 

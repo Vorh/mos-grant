@@ -35,13 +35,12 @@
 
 <script>
 
-import RequestsTable from "../requests/RequestsTable";
 import GrantTable from "./GrantTable";
 
 
 export default {
   name: "StatsView",
-  components: {GrantTable, RequestsTable},
+  components: {GrantTable},
 
   data: () => ({
 

@@ -14,12 +14,12 @@
           sm="12"
       >
         <v-row class="justify-center align-center pt-15">
-          <div class="grant-title ml-2">Мои заявки на субсидию</div>
+          <div class="grant-title ml-2">Мои заявки на субсидии</div>
         </v-row>
 
         <v-row justify="center" class="mt-15">
           <v-col class="form  fixed " lg="6">
-            <RequestsTable/>
+            <MyRequestsTable/>
           </v-col>
         </v-row>
 
@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import RequestsTable from "./RequestsTable";
+import MyRequestsTable from "./MyRequestsTable";
 export default {
   name: "RequestsView",
-  components: {RequestsTable},
+  components: {MyRequestsTable },
   data: () => ({
 
 
