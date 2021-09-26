@@ -1,43 +1,49 @@
 <template>
-  <div
-      class="file-input-container"
-      @drop.prevent="addDropFile($event)"
-      @dragover.prevent="dragover = true"
-      @dragenter.prevent="dragover = true"
-      @dragleave.prevent="dragover = false">
-    <v-col>
-      <v-row>
-        <v-spacer></v-spacer>
-        <v-img :src="require('../../assets/upload-file.png')"
-               max-width="75px" max-height="100px">
-        </v-img>
-        <v-spacer></v-spacer>
-      </v-row>
-      <br>
-      <v-row justify="center" align="center">
-        <p>
-          <a class="file-container">
-            Загрузите с компьютера
-            <input type="file"
-                   multiple
-                   @change="addFiles"
-            >
-          </a>
-          <!-- :disabled="!getPermission('change')" -->
-          <label> или переместите файлы сюда</label>
-        </p>
-        <p v-if="files.length > 0">
-          Файлов: {{ files.length }} (всего {{ filesSize }} MB)
-          <v-btn
-              icon
-              :disabled="!(files.length > 0)"
-              @click="uploadDocuments">
-            <v-icon >mdi-upload</v-icon>
-          </v-btn>
-        </p>
-      </v-row>
-    </v-col>
-  </div>
+  <v-card style="height: 100%">
+    <v-card-title>Загрузите скан паспорта ген. директора</v-card-title>
+    <v-card-text>
+    <div
+        class="file-input-container"
+        @drop.prevent="addDropFile($event)"
+        @dragover.prevent="dragover = true"
+        @dragenter.prevent="dragover = true"
+        @dragleave.prevent="dragover = false">
+      <v-col>
+        <v-row>
+          <v-spacer></v-spacer>
+          <v-img :src="require('../../assets/upload-file.png')"
+                 max-width="75px" max-height="100px">
+          </v-img>
+          <v-spacer></v-spacer>
+        </v-row>
+        <br>
+        <v-row justify="center" align="center">
+          <p>
+            <a class="file-container">
+              Загрузите с компьютера
+              <input type="file"
+                     multiple
+                     @change="addFiles"
+              >
+            </a>
+            <!-- :disabled="!getPermission('change')" -->
+            <label> или переместите файлы сюда</label>
+          </p>
+          <p v-if="files.length > 0">
+            Файлов: {{ files.length }} (всего {{ filesSize }} MB)
+            <v-btn
+                icon
+                :disabled="!(files.length > 0)"
+                @click="uploadDocuments">
+              <v-icon>mdi-upload</v-icon>
+            </v-btn>
+          </p>
+        </v-row>
+      </v-col>
+    </div>
+
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -114,7 +120,6 @@ export default {
   computed: {
 
 
-
     filesSize() {
       if (this.files.length > 0) {
         let size = 0;
@@ -132,19 +137,18 @@ export default {
 
   methods: {
 
-    ...mapMutations(['setStep', 'setComplete2']),
+    ...mapMutations(['setFinish']),
 
-
-    uploadDocuments(){
+    uploadDocuments() {
 
       for (let i = 0; i < this.files.length; i++) {
         let file = this.files[i];
 
         let find = this.typeDocuments.find(value => file.name.includes(value.name));
-        if (find){
+        if (find) {
           find.file = file;
           find.checked = true;
-          file.caption ='Документ найден'
+          file.caption = 'Документ найден'
         }
       }
 
@@ -153,15 +157,16 @@ export default {
       this.typeDocuments = array;
 
       this.canNext = true;
+      this.setFinish(true);
     },
 
 
-    getColor(item){
+    getColor(item) {
 
 
-      if (item.checked){
+      if (item.checked) {
         return 'rgba(193, 251, 219, 0.72)'
-      }else{
+      } else {
         return 'rgba(23,162,184,0.09)';
       }
     },
@@ -173,7 +178,7 @@ export default {
       );
     },
 
-    goToNext(){
+    goToNext() {
       this.setStep(3);
       this.setComplete2(true)
       this.$router.push({name: 'GrantSendRequest'});
@@ -182,7 +187,7 @@ export default {
     addFiles(e) {
       let files = e.target.files;
       if (files.length >= 1) {
-        for (let i = 0; i <files.length ; i++) {
+        for (let i = 0; i < files.length; i++) {
           let file = files[i];
           this.files.push(file);
         }
@@ -199,7 +204,7 @@ export default {
   border-radius: 8px;
 }
 
-.btn-get{
+.btn-get {
   width: 100%;
 }
 
@@ -231,6 +236,8 @@ a.file-container > input[type=file] {
   top: 0;
   left: 0;
   text-align: right;
+  width: 100%;
+  height: 100%;
 }
 
 </style>

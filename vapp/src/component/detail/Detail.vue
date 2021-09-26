@@ -16,7 +16,7 @@
           <div class="grant-title ml-2">Заявка №16</div>
         </v-row>
         <v-row class="justify-center align-center">
-          <div class="sub-title ml-2">Статус: Запрошены доп. документы</div>
+          <div class="sub-title ml-2">Статус: {{statusText}}</div>
           <v-btn icon color="green">
             <v-icon title="Что значит этот статус?">mdi-comment-question</v-icon>
           </v-btn>
@@ -52,6 +52,7 @@ import Data from "./Data";
 import Checks from "./Checks";
 import Status from "./Status";
 import SimilarRequests from "./SimilarRequests";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Detail",
@@ -64,6 +65,18 @@ export default {
   }),
 
   computed: {
+
+    statusText: function (){
+
+      if (this.finish){
+        return 'Завершена'
+      }else {
+        return 'Запрошены доп. документы'
+      }
+    },
+
+    ...mapGetters(['finish']),
+
     activeTabCard: function () {
       return {
         'tab-button': this.tab === 1,

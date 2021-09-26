@@ -101,8 +101,10 @@
         edit-icon="mdi-check"
         color="black"
     >
-      <p class="pa-0 ma-0">Проверка <v-chip class="check-chip" color="green">Московская прописка</v-chip>
-        пройдена</p>
+      <p class="pa-0 ma-0">Проверка
+        <v-chip class="check-chip" color="green">Московская прописка</v-chip>
+        пройдена
+      </p>
     </v-stepper-step>
 
     <v-stepper-content step="4">
@@ -116,8 +118,10 @@
         edit-icon="mdi-check"
         color="black"
     >
-      <p class="pa-0 ma-0">Проверка <v-chip class="check-chip" color="warning">Российское гражданство</v-chip>
-        не пройдена</p>
+      <p class="pa-0 ma-0">Проверка
+        <v-chip class="check-chip" color="warning">Российское гражданство</v-chip>
+        не пройдена
+      </p>
     </v-stepper-step>
     <v-stepper-content step="5">
     </v-stepper-content>
@@ -129,8 +133,10 @@
         edit-icon="mdi-check"
         color="black"
     >
-      <p class="pa-0 ma-0">Проверка <v-chip class="check-chip" color="green">Возраст бизнеса </v-chip>
-        пройдена</p>
+      <p class="pa-0 ma-0">Проверка
+        <v-chip class="check-chip" color="green">Возраст бизнеса</v-chip>
+        пройдена
+      </p>
     </v-stepper-step>
     <v-stepper-content step="6">
     </v-stepper-content>
@@ -142,8 +148,10 @@
         edit-icon="mdi-check"
         color="black"
     >
-      <p class="pa-0 ma-0">Проверка <v-chip class="check-chip" color="warning">Надежность</v-chip>
-        не пройдена</p>
+      <p class="pa-0 ma-0">Проверка
+        <v-chip class="check-chip" color="warning">Надежность</v-chip>
+        не пройдена
+      </p>
     </v-stepper-step>
     <v-stepper-content step="7">
     </v-stepper-content>
@@ -155,23 +163,72 @@
         edit-icon="mdi-check"
         color="black"
     >
-      <p class="pa-0 ma-0">Проверка <v-chip class="check-chip" color="info">Наличие долгов </v-chip>
-        в процессе </p>
+      <p class="pa-0 ma-0">Проверка
+        <v-chip class="check-chip" color="info">Наличие долгов</v-chip>
+        в процессе
+      </p>
     </v-stepper-step>
     <v-stepper-content step="8">
     </v-stepper-content>
 
-    <v-stepper-step
-        editable
-        color="black"
-        :rules="[() => false]"
-        step="9">
+    <v-stepper-step v-if="!finish"
+                    editable
+                    color="black"
+                    :rules="[() => false]"
+                    step="9">
       Запрошены доп. документы
     </v-stepper-step>
-    <v-stepper-content step="9">
+    <v-stepper-content step="9" v-if="!finish">
       <DocumentUploader/>
     </v-stepper-content>
+
+    <v-stepper-step v-if="finish"
+                    editable
+                    color="black"
+                    edit-icon="mdi-check"
+                    complete
+                    step="9">
+      Доп. документы получены
+    </v-stepper-step>
+    <v-stepper-content step="9">
+    </v-stepper-content>
+
+
+    <v-stepper-step v-if="finish"
+                    editable
+                    color="black"
+                    edit-icon="mdi-check"
+                    complete
+                    step="10">
+      Заявка проверена
+    </v-stepper-step>
+    <v-stepper-content step="10">
+    </v-stepper-content>
+
+
+    <v-stepper-step v-if="finish"
+                    editable
+                    color="black"
+                    edit-icon="mdi-check"
+                    complete
+                    step="11">
+      Деньги отправлены
+    </v-stepper-step>
+    <v-stepper-content step="11">
+    </v-stepper-content>
+
+    <v-stepper-step v-if="finish"
+                    editable
+                    color="green"
+                    edit-icon="mdi-check"
+                    complete
+                    step="12">
+      Завершена
+    </v-stepper-step>
+    <v-stepper-content step="12">
+    </v-stepper-content>
   </v-stepper>
+
 </template>
 
 <script>
@@ -184,11 +241,11 @@ export default {
   components: {DocumentUploader, GrantDocument},
 
   computed: {
-    ...mapGetters(['sum', 'typeGrant', 'inn', 'orgName']),
+    ...mapGetters(['sum', 'typeGrant', 'inn', 'orgName', 'finish']),
   },
   data: () => ({
 
-    step: 10,
+    step: 15,
 
   }),
 }
@@ -198,7 +255,8 @@ export default {
 .no-transition {
   transition: none !important;
 }
-.check-chip{
+
+.check-chip {
   color: black !important;
 }
 </style>

@@ -5,6 +5,8 @@ const state = {
     sum: '',
     typeGrant: null,
     orgName: null,
+
+    finish: false,
 };
 
 const getters = {
@@ -12,6 +14,10 @@ const getters = {
 
     inn(state) {
         return state.inn;
+    },
+
+    finish(state) {
+        return state.finish;
     },
 
     fio(state) {
@@ -64,6 +70,10 @@ const mutations = {
 
     setOrgName(state, orgName) {
         state.orgName= orgName;
+    },
+
+    setFinish(state, finish) {
+        state.finish = finish;
     },
 };
 
